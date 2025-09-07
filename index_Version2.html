@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat Support Timer - Juan Fernando Araujo Castellanos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>⏰ Chat Support Timer</h1>
+        <p>Control profesional de tiempos en chats de soporte.<br>
+           Autor: Juan Fernando Araujo Castellanos</p>
+    </header>
+    <main>
+        <section class="chat-section">
+            <div id="chat1-timer" class="chat-timer"></div>
+            <div id="chat2-timer" class="chat-timer"></div>
+        </section>
+        <section class="tips">
+            <h2>¿Cómo funciona?</h2>
+            <ul>
+                <li>Selecciona el tipo de chat (<b>estándar</b> o <b>fantasma</b>).</li>
+                <li>Presiona <em>Iniciar</em> al enviar tu mensaje.</li>
+                <li>Recibe alertas visuales y sonoras para cada advertencia.</li>
+                <li>Desactiva la alerta antes de avanzar al siguiente paso.</li>
+                <li>¡Interactúa con los emojis para motivarte!</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <span class="emoji-footer">✨🚗💬</span>
+        <p>Hecho por Juan Fernando Araujo Castellanos</p>
+    </footer>
+    <script src="chat_timer_app.js"></script>
+    <script>
+        window.onload = () => {
+            new ChatTimer(document.getElementById('chat1-timer'), 1);
+            new ChatTimer(document.getElementById('chat2-timer'), 2);
+        };
+    </script>
+</body>
+</html>
