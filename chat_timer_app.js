@@ -113,7 +113,7 @@ class ChatTimer {
         let stepLabels = this.sequence.map((secs, idx) => {
             let label = (idx === 0 ? '1️⃣' : idx === 1 ? '2️⃣' : '3️⃣');
             let warn = idx === this.currentStep ? '🔵' : '';
-            return `<span class="step-label">${label} ${this.formatTime(secs)} ${warn}</span>`;
+            return `<span class="step-label" data-step="${idx}">${label} ${this.formatTime(secs)} ${warn}</span>`;
         }).join(" ");
 
         let timeLeft = this.alertActive
@@ -152,5 +152,15 @@ class ChatTimer {
         this.container.querySelector('.emoji').onclick = () => {
             this.container.querySelector('.emoji').textContent = this.randomEmoji();
         };
+
+        // Selección de advertencia con clic
+        this.container.querySelectorAll('.step-label').forEach(label => {
+            label.onclick = (e) => {
+                const step = parseInt(e.target.dataset.step, 10);
+                this.currentStep = step;
+                this.remaining = this.sequence[step];
+                this.updateDisplay();
+            };
+        });
     }
 }
