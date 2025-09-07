@@ -63,6 +63,8 @@ class ChatTimer {
         this.stopAlert();
         if (this.currentStep < this.sequence.length - 1) {
             this.currentStep++;
+            this.remaining = this.sequence[this.currentStep];
+            this.updateDisplay();
             this.start();
         } else {
             this.reset();
